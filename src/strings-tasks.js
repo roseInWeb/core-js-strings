@@ -302,8 +302,22 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  let vowels = 0;
+  const arr = str.toLowerCase().split('');
+  for (let i = 0; i < arr.length; i += 1) {
+    if (
+      arr[i] === 'a' ||
+      arr[i] === 'e' ||
+      arr[i] === 'i' ||
+      arr[i] === 'o' ||
+      arr[i] === 'u' ||
+      arr[i] === 'y'
+    ) {
+      vowels += 1;
+    }
+  }
+  return vowels;
 }
 
 /**
@@ -480,8 +494,10 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const str1 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const str2 = 'nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM';
+  return str.replace(/[a-z]/gi, (l) => str2[str1.indexOf(l)]);
 }
 
 /**
